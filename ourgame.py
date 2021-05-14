@@ -1,45 +1,3 @@
-### CLASSES
-class Hero:
-    def __init__(self, name, power, health):
-        self.name = name
-        self.power = power
-        self.health = health
-
-class Villian:
-    def __init__(self, name, power, health):
-        self.name = name
-        self.power = power
-        self.health = health
-
-class Super_Villian(Villian):
-    def __init__(self, name, power, health):
-        self.name = name
-        self.power = power
-        self.health = health
-
-
-### FIGHTER LIBRARY
-fighters = {}
-
-fighters["Hero"] = hero_choice 
-fighters["Villian"] = villian_choice
-
-
-### INSTANCES
-# HEROS
-wolverine = Hero(70, 25, "Wolverine")
-spider_man = Hero(70, 25, "Spider-Man")
-captain_america = Hero(80, 55, "Captain America")
-deadpool = Hero(60, 40, "Deadpool")
-# VILLIANS
-green_goblin = Villian(30, 15, "Green Goblin")
-venom = Villian(60, 35, "Venom")
-loki = Villian(20, 50, "Loki")
-red_skull = Villian(50, 35, "Red Skull")
-# BOSS
-thanos = Super_Villian(200, 200, "Thanos")
-
-
 ### INTRO SCREEN
 def intro_screen():
     print("""
@@ -107,6 +65,87 @@ WHO WILL YOUR SUPER HERO FIGHT?
 """)
 
 
+### CLASSES
+class Hero:
+    def __init__(self, name, power, health):
+        self.name = name
+        self.power = power
+        self.health = health
+
+class Villian:
+    def __init__(self, name, power, health):
+        self.name = name
+        self.power = power
+        self.health = health
+
+
+### INSTANCES
+# HEROS
+wolverine = Hero("Wolverine", 25, 70)
+spider_man = Hero("Spider-Man", 25, 70)
+captain_america = Hero("Captain America", 55, 80)
+deadpool = Hero("Deadpool", 40, 60)
+# VILLIANS
+green_goblin = Villian("Green Goblin", 15, 30)
+venom = Villian("Venom", 35, 60)
+loki = Villian("Loki", 50, 20)
+red_skull = Villian("Red Skull", 35, 50)
+
+
+### FIGHTER LIBRARY
+# HEROS
+hero_fighters = [
+    {
+        "name": "Captain America",
+        "alias": "Steve Rogers",
+        "gear": ["Shield", "Super Strength"],
+    },
+    {
+         "name": "Spider-Man",
+        "alias": "Peter Parker",
+        "gear": ["Mechanical Arms", "Spider-Web"],
+    },
+    {
+        "name": "Wolverine",
+        "alias": "James Howlett aka Logan",
+        "gear": ["Claws", "Daggers"],
+    },
+    {
+        "name": "Deadpool",
+        "alias": "Wade Wilson",
+        "gear": ["Sarcasim", "Killer Humor", "Regeneration", "Katanas"]
+
+    }
+]
+
+# VILLIANS
+villian_fighters = [
+     {
+         "name": "Green Goblin",
+         "alias": "Norman Osborn",
+         "gear": ["Hoverboard", "Pumpkin Bombs"]
+     },
+     {
+         "name": "Loki",
+         "alias": "God of Mischief",
+         "gear": ["Dagger", "Shape Shifter"]
+     },
+     {
+         "name": "Venom",
+         "alias": "Eddie Brock",
+         "gear": ["Undetectable by Spiderman", "Super Strength",]
+     },
+     {
+         "name": "Red Skull",
+         "alias": "Johann Schmidt",
+         "gear": ["Willpower", "Reality Warp"]
+     }
+]
+
+hero_input = hero_fighters
+villian_input = villian_fighters
+
+
 ### BATTLE
 def status(self, villian):
     print("%s has %s health." % (self.name, self.health))
@@ -136,138 +175,45 @@ def main():
 
     # HERO SELECTION
     hero_menu()
-    user_input = input()
-    if user_input == "Wolverine":
-        print()
-        print("You've chosen Wolverine as your super hero!")
-        print()
-        pause = input("Press ENTER to select your VILLIAN!!! >:( ")
-        print()
+    hero_input = input()
+    if hero_input == "Wolverine":
         print("\033c")
-    elif user_input == "Captain America":
-        print()
-        print("You've chosen Captain America as your super hero!")
-        print()
-        pause = input("Press ENTER to select your VILLIAN!!! >:( ")
-        print()
+    elif hero_input == "Captain America":
         print("\033c")
-    elif user_input == "Spider-Man":
-        print()
-        print("You've chosen Spider-Man as your super hero!")
-        print()
-        pause = input("Press ENTER to select your VILLIAN!!! >:( ")
-        print()
+    elif hero_input == "Spider-Man":
         print("\033c")
-    elif user_input == "Deadpool":
-        print()
-        print("You've chosen Deadpool as your super hero! (But is he really though...?)")
-        print()
-        pause = input("Press ENTER to select your VILLIAN!!! >:( ")
-        print()
+    elif hero_input == "Deadpool":
         print("\033c")
     else:
         print("Who is that???")
 
     # VILLIAN SELECTION
     villian_menu()
-    user_input = input()
-    if user_input == "Green Goblin":
-        print()
-        print("You've chosen Green Goblin as your villian...")
-        print()
-        pause = input("PRESS ENTER TO FIGHT!")
-        print()
+    villian_input = input()
+    if villian_input == "Green Goblin":
         print("\033c")
-    elif user_input == "Loki":
-        print()
-        print("You've chosen Loki as your villian...")
-        print()
-        pause = input("PRESS ENTER TO FIGHT!")
-        print()
+    elif villian_input == "Loki":
         print("\033c")
-    elif user_input == "Venom":
-        print()
-        print("You've chosen Venom as your villian...")
-        print()
-        pause = input("PRESS ENTER TO FIGHT!")
-        print()
+    elif villian_input == "Venom":
         print("\033c")
-    elif user_input == "Red Skull":
-        print()
-        print("You've chosen Red Skull as your villian...")
-        print()
-        pause = input("PRESS ENTER TO FIGHT!")
-        print()
+    elif villian_input == "Red Skull":
         print("\033c")
     else:
         print("Who is that???")
 
+    # READY TO BATTLE?
+    print("""
+Super Hero Selection:
+Name:
+Power:
+Health:
+""")
+    print()
+    print("""
+Villian Selection:
+Name:
+Power:
+Health:
+""")
+
 main()
-
-
-##### OLD CODE
-
-# class Character:
-
-#     def __init__(self, health, power, name):
-#         pass
-
-#     def attack(self, target):
-#             if isinstance(target, Zombie):
-#                 print("The attack doesn't seem to have any effect.")
-#             else:
-#                 target.health -= self.power
-#                 print("%s does %d damage to %s!" % (self.name, self.power, target.name))
-
-#     def sleep(self, target):
-#         self.health -= target.power
-#         print("%s does %d damange to %s!" % (target.name, target.power, self.name))
-
-#     def alive(self):
-#         if (self.health > 0):
-#             return True
-#         elif (self.health <= 0):
-#             print("RIP in peace, %s..." % self.name)
-#             print()
-#         elif (target.health <= 0):
-#             print("RIP in peace, %s..." % target.name)
-#             print()
-
-#     def print_status(self):
-#         print("%s has %d health and %d power." % (self.name, self.health, self.power))
-
-    # satine.print_status()
-    # monstera.print_status()
-
-    # while monstera.alive() and satine.alive():
-
-    #     print()
-    #     print("Whatchu gonna do mf-er?!")
-    #     print("1. FIGHT!")
-    #     print("2. sleeeep")
-    #     print("3. Ah ShIT! (Run)")
-    #     print(">",)
-    #     user_input = input()
-
-    #     if user_input == "1":
-    #             print()
-    #             print("~Final Fantasy Battle Music Ensues~")
-    #             print()
-    #             satine.attack(monstera)
-    #             monstera.attack(satine)
-       
-    #     elif user_input == "2":
-    #         print()
-    #         print("Sleepy baby... B O N K")
-    #         print()
-    #         satine.sleep(monstera)
-    #         print()
-        
-    #     elif user_input == "3":
-    #         print()
-    #         print("See ya later Weenie Hut Jr!")
-    #         print()
-    #         break
-        
-    #     else:
-    #         print("Wtf is %r???" % user_input)
