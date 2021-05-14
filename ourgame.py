@@ -1,37 +1,4 @@
-# class Character:
-
-#     def __init__(self, health, power, name):
-#         pass
-
-#     def attack(self, target):
-#             if isinstance(target, Zombie):
-#                 print("The attack doesn't seem to have any effect.")
-#             else:
-#                 target.health -= self.power
-#                 print("%s does %d damage to %s!" % (self.name, self.power, target.name))
-
-#     def sleep(self, target):
-#         self.health -= target.power
-#         print("%s does %d damange to %s!" % (target.name, target.power, self.name))
-
-#     def alive(self):
-#         if (self.health > 0):
-#             return True
-#         elif (self.health <= 0):
-#             print("RIP in peace, %s..." % self.name)
-#             print()
-#         elif (target.health <= 0):
-#             print("RIP in peace, %s..." % target.name)
-#             print()
-
-#     def print_status(self):
-#         print("%s has %d health and %d power." % (self.name, self.health, self.power))
-
-
-
-
-
-###CLASSES
+### CLASSES
 class Hero:
     def __init__(self, name, power, health):
         self.name = name
@@ -51,29 +18,29 @@ class Super_Villian(Villian):
         self.health = health
 
 
-###FIGHTER LIBRARY
+### FIGHTER LIBRARY
 fighters = {}
 
-# fighters["Hero"] = hero_choice 
-# fighers["Villian"] = villian_choice
+fighters["Hero"] = hero_choice 
+fighters["Villian"] = villian_choice
 
 
-###INSTANCES
-#HEROS
+### INSTANCES
+# HEROS
 wolverine = Hero(70, 25, "Wolverine")
 spider_man = Hero(70, 25, "Spider-Man")
 captain_america = Hero(80, 55, "Captain America")
 deadpool = Hero(60, 40, "Deadpool")
-#VILLIANS
+# VILLIANS
 green_goblin = Villian(30, 15, "Green Goblin")
 venom = Villian(60, 35, "Venom")
 loki = Villian(20, 50, "Loki")
 red_skull = Villian(50, 35, "Red Skull")
-#BOSS
+# BOSS
 thanos = Super_Villian(200, 200, "Thanos")
 
 
-###INTRO SCREEN
+### INTRO SCREEN
 def intro_screen():
     print("""
                                ,,,, 
@@ -106,7 +73,7 @@ RESPONSIBILITY        _;:':;;;;:';-._             );
     print("\033c")
 
 
-###HERO MENU
+### HERO MENU
 def hero_menu():
     print("""
 --------------------------------------
@@ -123,7 +90,7 @@ WHO DO YOU CHOOSE?
 """)
 
 
-###VILLIAN SELECTION SCREEN
+### VILLIAN SELECTION SCREEN
 def villian_menu():
     print("""
 --------------------------------------
@@ -140,7 +107,7 @@ WHO WILL YOUR SUPER HERO FIGHT?
 """)
 
 
-###BATTLE
+### BATTLE
 def status(self, villian):
     print("%s has %s health." % (self.name, self.health))
 
@@ -161,13 +128,13 @@ def dead(self, villian):
         print()
 
 
-###GLOBAL FUNCTIONS
+### GLOBAL FUNCTIONS
 def main():
 
-    #INTRO
+    # INTRO
     intro_screen()
 
-    #HERO SELECTION
+    # HERO SELECTION
     hero_menu()
     user_input = input()
     if user_input == "Wolverine":
@@ -201,7 +168,7 @@ def main():
     else:
         print("Who is that???")
 
-    #VILLIAN SELECTION
+    # VILLIAN SELECTION
     villian_menu()
     user_input = input()
     if user_input == "Green Goblin":
@@ -234,12 +201,41 @@ def main():
         print("\033c")
     else:
         print("Who is that???")
-    
+
+main()
 
 
+##### OLD CODE
 
+# class Character:
 
-#####OLD CODE
+#     def __init__(self, health, power, name):
+#         pass
+
+#     def attack(self, target):
+#             if isinstance(target, Zombie):
+#                 print("The attack doesn't seem to have any effect.")
+#             else:
+#                 target.health -= self.power
+#                 print("%s does %d damage to %s!" % (self.name, self.power, target.name))
+
+#     def sleep(self, target):
+#         self.health -= target.power
+#         print("%s does %d damange to %s!" % (target.name, target.power, self.name))
+
+#     def alive(self):
+#         if (self.health > 0):
+#             return True
+#         elif (self.health <= 0):
+#             print("RIP in peace, %s..." % self.name)
+#             print()
+#         elif (target.health <= 0):
+#             print("RIP in peace, %s..." % target.name)
+#             print()
+
+#     def print_status(self):
+#         print("%s has %d health and %d power." % (self.name, self.health, self.power))
+
     # satine.print_status()
     # monstera.print_status()
 
@@ -275,5 +271,3 @@ def main():
         
     #     else:
     #         print("Wtf is %r???" % user_input)
-
-main()
