@@ -70,6 +70,7 @@ venom = Villian(60, 35, "Venom")
 loki = Villian(20, 50, "Loki")
 red_skull = Villian(50, 35, "Red Skull")
 #BOSS
+thanos = Super_Villian(200, 200, "Thanos")
 
 
 ###INTRO SCREEN
