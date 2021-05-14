@@ -31,41 +31,48 @@
 
 
 
-
-#CLASSES
+###CLASSES
 class Hero:
-    def __init__(self, name, health, power):
+    def __init__(self, name, power, health):
         self.name = name
         self.power = power
         self.health = health
 
-    def hero_status(self):
-        print("%s has %s health!" % (self.name, self.health))
-
-    def attack(self, villian):
-        villian.health -= self.power
-
-    def block(self, villian):
-        self.health -= villian.power%2
-
 class Villian:
-    def __init__(self, name, health, power):
+    def __init__(self, name, power, health):
         self.name = name
         self.power = power
         self.health = health
 
 class Super_Villian(Villian):
-    def __init__(self, name, health, power):
+    def __init__(self, name, power, health):
         self.name = name
         self.power = power
         self.health = health
 
 
-#INSTANCES
-#-----------------
+###FIGHTER LIBRARY
+fighters = {}
+
+# fighters["Hero"] = hero_choice 
+# fighers["Villian"] = villian_choice
 
 
-#INTRO SCREEN
+###INSTANCES
+#HEROS
+wolverine = Hero(70, 25, "Wolverine")
+spider_man = Hero(70, 25, "Spider-Man")
+captain_america = Hero(80, 55, "Captain America")
+deadpool = Hero(60, 40, "Deadpool")
+#VILLIANS
+green_goblin = Villian(30, 15, "Green Goblin")
+venom = Villian(60, 35, "Venom")
+loki = Villian(20, 50, "Loki")
+red_skull = Villian(50, 35, "Red Skull")
+#BOSS
+
+
+###INTRO SCREEN
 def intro_screen():
     print("""
                                ,,,, 
@@ -98,7 +105,7 @@ RESPONSIBILITY        _;:':;;;;:';-._             );
     print("\033c")
 
 
-#HERO MENU
+###HERO MENU
 def hero_menu():
     print("""
 --------------------------------------
@@ -115,7 +122,7 @@ WHO DO YOU CHOOSE?
 """)
 
 
-# #VILLIAN SELECTION SCREEN
+###VILLIAN SELECTION SCREEN
 def villian_menu():
     print("""
 --------------------------------------
@@ -132,7 +139,28 @@ WHO WILL YOUR SUPER HERO FIGHT?
 """)
 
 
-#GLOBAL FUNCTIONS
+###BATTLE
+def status(self, villian):
+    print("%s has %s health." % (self.name, self.health))
+
+def attack(self, villian):
+    villian.health -= self.power
+
+def block(self, villian):
+    self.health -= villian.power/2
+
+def dead(self, villian):
+    if (self.health > 0):
+        return True
+    elif (self.health <= 0):
+        print("%s has been defeated!" % self.name)
+        print()
+    elif (villian.health <= 0):
+        print("%s has been defeated!" % villian.name)
+        print()
+
+
+###GLOBAL FUNCTIONS
 def main():
 
     #INTRO
@@ -179,18 +207,30 @@ def main():
         print()
         print("You've chosen Green Goblin as your villian...")
         print()
+        pause = input("PRESS ENTER TO FIGHT!")
+        print()
+        print("\033c")
     elif user_input == "Loki":
         print()
         print("You've chosen Loki as your villian...")
         print()
+        pause = input("PRESS ENTER TO FIGHT!")
+        print()
+        print("\033c")
     elif user_input == "Venom":
         print()
         print("You've chosen Venom as your villian...")
         print()
+        pause = input("PRESS ENTER TO FIGHT!")
+        print()
+        print("\033c")
     elif user_input == "Red Skull":
         print()
         print("You've chosen Red Skull as your villian...")
         print()
+        pause = input("PRESS ENTER TO FIGHT!")
+        print()
+        print("\033c")
     else:
         print("Who is that???")
     
@@ -198,7 +238,7 @@ def main():
 
 
 
-    #OLD CODE
+#####OLD CODE
     # satine.print_status()
     # monstera.print_status()
 
